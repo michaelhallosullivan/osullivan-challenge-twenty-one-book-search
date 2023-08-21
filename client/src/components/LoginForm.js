@@ -26,7 +26,7 @@ const LoginForm = () => {
     }
 
     try {
-      const response = await addUser({
+      const response = await loginUser({
         variables: { userFormData },
       });
       const { token, user } = await response.json();
