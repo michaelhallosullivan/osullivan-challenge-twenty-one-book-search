@@ -13,9 +13,9 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
+    addUser: async (parent, args) => {
       // First we create the user
-      const user = await User.create({ username, email, password });
+      const user = await User.create(args);
       // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
       const token = signToken(user);
       // Return an `Auth` object that consists of the signed token and user's information
